@@ -16,7 +16,7 @@ async def start(bot, update):
     await update.reply_text("Start Message Here")
 
 
-@bughunter0.on_message(filters.forwarded & filters.channel)
+@bughunter0.on_message(filters.forwarded and filters.channel)
 async def channeltag(bot, message):
    try:
        chat_id = message.chat.id

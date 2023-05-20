@@ -10,17 +10,14 @@ bughunter0 = Client(
     api_hash=os.environ["API_HASH"],
 )
 
-
 @bughunter0.on_message(filters.command(["start"]))
 async def start(bot, update):
     await update.reply_text("Start Message Here")
 
-
 @bughunter0.on_message(filters.forwarded and filters.channel)
 async def channeltag(bot, message):
    try:
-       chat_id = message.chat.id
-       forward_msg = await message.copy(chat_id)
+       forward_msg = await message.copy(message.chat.id)
        await message.delete()
    except:
        await message.reply_text("Oops , Recheck My Admin Permissions & Try Again")

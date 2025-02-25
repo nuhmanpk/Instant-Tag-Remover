@@ -14,6 +14,7 @@ bughunter0 = Client(
 async def start(bot, update):
     await update.reply_text("Start Message Here")
 
+# remove filters.channel from here, so that it works in groups
 @bughunter0.on_message(filters.forwarded and filters.channel)
 async def channeltag(bot, message):
    try:
